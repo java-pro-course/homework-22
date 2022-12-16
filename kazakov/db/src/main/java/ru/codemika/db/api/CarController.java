@@ -29,15 +29,13 @@ public class CarController {
         return carService.updateCar(id, requestObject);
     }
 }
-//curl -X POST "http://localhost:8080/create-new-car" \
-//        -H "Content-Type: application/json" \
-//        -d "{
-//        \"brand\": \"LADA\",
-//        \"model\": \"Niva\",
-//        \"price\": 1000000,
-//        \"speed\": \"1000\",
-//        }"
-//    POST http://localhost:8080/create-new-car
-//        Content-Type: application/json
-//
-//        {  "brand": "LADA",  "model": "Niva",  "price": 1000000,  "speed": "1000"}
+/**
+   curl -X POST "http://localhost:8080/create-new-car" \
+        -H "Content-Type: application/json" \
+        -d "{
+        \"brand\": \"LADA\",
+        \"model\": \"Niva\",
+        \"price\": 1000000,
+        \"speed\": \"1000\"
+        }"
+ **/
