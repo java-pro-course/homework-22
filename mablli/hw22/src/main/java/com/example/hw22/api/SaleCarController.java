@@ -29,7 +29,7 @@ public class SaleCarController {
 
     /**
      * Получить сумму продаж авто
-     * @return сумму продаж
+     * @return сумма продаж
      */
     @GetMapping("get-sum-of-sales")
     public int getSum(){

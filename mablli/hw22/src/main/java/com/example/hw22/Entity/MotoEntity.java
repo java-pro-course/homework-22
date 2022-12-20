@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
- * Сущность машины, привязанная к БД
+ * Сущность мотоцикла, привязанная к БД
  */
 @Entity
-@Table(schema = "mab", name = "car")
-public class CarEntity {
+@Table(schema = "mab", name = "moto")
+public class MotoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     @Column(name = "brand")
-    private String brand;
+    String brand;
 
     @Column(name = "model")
     private String model;
@@ -66,4 +66,3 @@ public class CarEntity {
         this.horsepower = horsepower;
     }
 }
-

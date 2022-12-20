@@ -27,17 +27,17 @@ public class CarService {
      * @param request объект машины
      * @return сохранение машины
      */
-        public CarEntity createNewCar(CreateNewCar request){
+    public CarEntity createNewCar(CreateNewCar request){
 
-            CarEntity newCar = new CarEntity();
+        CarEntity newCar = new CarEntity();
 
-            newCar.setBrand(request.getBrand());
-            newCar.setModel(request.getModel());
-            newCar.setHorsepower(request.getHorsepower());
-            newCar.setDateCreate(request.getDateCreate());
+        newCar.setBrand(request.getBrand());
+        newCar.setModel(request.getModel());
+        newCar.setHorsepower(request.getHorsepower());
+        newCar.setDateCreate(request.getDateCreate());
 
-            return carRepository.save(newCar);
-        }
+        return carRepository.save(newCar);
+    }
 
     /**
      * Удаление машины по id
@@ -45,9 +45,9 @@ public class CarService {
      * @return строку, что машина была удалена
      */
     public String deleteCarById(Long carId){
-            carRepository.deleteById(carId);
-            return "Car was deleted";
-        }
+        carRepository.deleteById(carId);
+        return "Car was deleted";
+    }
 
     /**
      * Редактирование машины
@@ -58,14 +58,14 @@ public class CarService {
      * @param dateCreate дата создания
      * @return объект машины
      */
-        public CarEntity editTheCar(Long Id, String brand, String model, int horsepower, LocalDate dateCreate){
-            CarEntity editedCar = carRepository.findById(Id).get();
+    public CarEntity editTheCar(Long Id, String brand, String model, int horsepower, LocalDate dateCreate){
+        CarEntity editedCar = carRepository.findById(Id).get();
 
-            editedCar.setBrand(brand);
-            editedCar.setModel(model);
-            editedCar.setHorsepower(horsepower);
-            editedCar.setDateCreate(dateCreate);
+        editedCar.setBrand(brand);
+        editedCar.setModel(model);
+        editedCar.setHorsepower(horsepower);
+        editedCar.setDateCreate(dateCreate);
 
-            return editedCar;
-        }
+        return editedCar;
+    }
 }

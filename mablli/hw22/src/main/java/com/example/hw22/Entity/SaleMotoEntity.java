@@ -2,16 +2,14 @@ package com.example.hw22.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Сущность продаваемой машины, привязанная к БД
+ * Сущность продаваемого мотоцикла, связанная с БД
  */
 @Entity
-@Table(schema = "mab", name = "car_sale")
-public class SaleCarEntity {
-
+@Table(schema = "mab", name = "sale_moto")
+public class SaleMotoEntity {
     @Column(name = "id")
     Long Id;
     @Column(name = "price")
