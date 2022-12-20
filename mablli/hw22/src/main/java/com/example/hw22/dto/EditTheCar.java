@@ -2,6 +2,9 @@ package com.example.hw22.dto;
 
 import java.time.LocalDate;
 
+/**
+ * Описание редактирования авто
+ */
 public class EditTheCar {
 
     private String newBrand;

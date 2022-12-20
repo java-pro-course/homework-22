@@ -2,6 +2,9 @@ package com.example.hw22.dto;
 
 import java.time.LocalDate;
 
+/**
+ * Описание объекта авто без привязки к БД
+ */
 public class CreateNewCar {
 
     private String brand;

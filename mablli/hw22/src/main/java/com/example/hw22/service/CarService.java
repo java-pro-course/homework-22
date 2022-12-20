@@ -1,13 +1,18 @@
 package com.example.hw22.service;
 
 import com.example.hw22.Entity.CarEntity;
+import com.example.hw22.Entity.SaleCarEntity;
 import com.example.hw22.dto.CreateNewCar;
 import com.example.hw22.dto.EditTheCar;
 import com.example.hw22.repository.CarRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
+/**
+ * Сервисный слой для машины
+ */
 @Service
 public class CarService {
 
@@ -17,6 +22,11 @@ public class CarService {
         this.carRepository = carRepository;
     }
 
+    /**
+     * Создание машины
+     * @param request объект машины
+     * @return сохранение машины
+     */
         public CarEntity createNewCar(CreateNewCar request){
 
             CarEntity newCar = new CarEntity();
@@ -29,11 +39,25 @@ public class CarService {
             return carRepository.save(newCar);
         }
 
-        public String deleteCarById(Long carId){
+    /**
+     * Удаление машины по id
+     * @param carId id машины
+     * @return строку, что машина была удалена
+     */
+    public String deleteCarById(Long carId){
             carRepository.deleteById(carId);
             return "Car was deleted";
         }
 
+    /**
+     * Редактирование машины
+     * @param Id id машины
+     * @param brand брэнд машины
+     * @param model модель машины
+     * @param horsepower мощность
+     * @param dateCreate дата создания
+     * @return объект машины
+     */
         public CarEntity editTheCar(Long Id, String brand, String model, int horsepower, LocalDate dateCreate){
             CarEntity editedCar = carRepository.findById(Id).get();
 

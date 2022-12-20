@@ -3,6 +3,9 @@ package com.example.hw22.Entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * Сущность машины, привязанная к БД
+ */
 @Entity
 @Table(schema = "mab", name = "car")
 public class CarEntity {
