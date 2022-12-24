@@ -3,7 +3,9 @@ package svarog.homework22.demo.service;
 import org.springframework.stereotype.Service;
 import svarog.homework22.demo.dto.CreateNewCar;
 import svarog.homework22.demo.entity.CarEntity;
+import svarog.homework22.demo.entity.SaleEntity;
 import svarog.homework22.demo.repository.CarRepository;
+import svarog.homework22.demo.repository.SaleRepository;
 
 import javax.transaction.Transactional;
 
@@ -13,9 +15,11 @@ import javax.transaction.Transactional;
 @Service
 public class CarService {
     private final CarRepository carRepository;
+    private final SaleRepository saleRepository;
 
-    public CarService(CarRepository carRepository) {
+    public CarService(CarRepository carRepository, SaleRepository saleRepository) {
         this.carRepository = carRepository;
+        this.saleRepository = saleRepository;
     }
 
     /**
@@ -51,5 +55,12 @@ public class CarService {
     public String changeCar(CreateNewCar car){
         carRepository.updateById(car.getBrand(), car.getModel(), car.getMileage(), car.getColor(), car.getId());
         return String.format("<h1>Машина с id: %s успешно изменена</h1>", car.getId());
+    }
+
+
+    public String sellCarById(SaleEntity car){
+        saleRepository.save(car);
+        carRepository.deleteById(car.getCarId());
+        return String.format("Машина успешно продана. Вы заработали %d рублей", car.getPrice());
     }
 }

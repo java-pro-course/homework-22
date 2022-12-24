@@ -3,6 +3,7 @@ package svarog.homework22.demo.api;
 import org.springframework.web.bind.annotation.*;
 import svarog.homework22.demo.dto.CreateNewCar;
 import svarog.homework22.demo.entity.CarEntity;
+import svarog.homework22.demo.entity.SaleEntity;
 import svarog.homework22.demo.service.CarService;
 
 /**
@@ -46,5 +47,15 @@ public class CarController {
     @PostMapping("change-car")
     public String changeCarById(@RequestBody CreateNewCar car){
         return carService.changeCar(car);
+    }
+
+    /**
+     * Мкетод, который просит сервис продать машину
+     * @param car сюда нужно передать id машины и её цену
+     * @return строку, где написано сколько мы заработали(за эту машину)
+     */
+    @PostMapping("sell-car-by-id")
+    public String sellCarById(SaleEntity car){
+        return carService.sellCarById(car);
     }
 }

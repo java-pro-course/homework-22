@@ -10,7 +10,7 @@ public class CreateNewCar {
     private Long mileage;
     private String color;
 
-    public CreateNewCar(Long id, String brand,String model ,Long mileage, String color) {
+    public CreateNewCar(Long id, String brand, String model, Long mileage, String color) {
         this.id = id;
         this.brand = brand;
         this.model = model;
