@@ -50,12 +50,17 @@ public class CarController {
     }
 
     /**
-     * Мкетод, который просит сервис продать машину
+     * Метод, который просит сервис продать машину
      * @param car сюда нужно передать id машины и её цену
      * @return строку, где написано сколько мы заработали(за эту машину)
      */
     @PostMapping("sell-car-by-id")
     public String sellCarById(SaleEntity car){
         return carService.sellCarById(car);
+    }
+
+    @PostMapping("all-sale")
+    public int allSale(){
+        return carService.allSale();
     }
 }

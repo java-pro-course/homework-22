@@ -8,6 +8,7 @@ import svarog.homework22.demo.repository.CarRepository;
 import svarog.homework22.demo.repository.SaleRepository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Это сервис, он делает за нас всю работу
@@ -62,5 +63,14 @@ public class CarService {
         saleRepository.save(car);
         carRepository.deleteById(car.getCarId());
         return String.format("Машина успешно продана. Вы заработали %d рублей", car.getPrice());
+    }
+
+    public int allSale(){
+        List<SaleEntity> sales = saleRepository.findAll();
+        int selling = 0;
+        for(SaleEntity sale : sales){
+            selling += sale.getPrice();
+        }
+        return selling;
     }
 }
